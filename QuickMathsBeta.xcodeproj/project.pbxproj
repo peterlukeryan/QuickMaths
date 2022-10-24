@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F96D8B902907292E00CCF92F /* MultiplicationInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D8B8F2907292E00CCF92F /* MultiplicationInputVC.swift */; };
+		F96D8B922907295D00CCF92F /* MultiplicationVisualVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D8B912907295D00CCF92F /* MultiplicationVisualVC.swift */; };
+		F96D8B942907297B00CCF92F /* ArenaWelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D8B932907297B00CCF92F /* ArenaWelcomeScreen.swift */; };
+		F96D8B962907299300CCF92F /* ArenaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D8B952907299300CCF92F /* ArenaVC.swift */; };
+		F96D8B98290729AC00CCF92F /* ArenaResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D8B97290729AC00CCF92F /* ArenaResultsVC.swift */; };
 		F9D35F2F28FDF5A4003EFF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D35F2E28FDF5A4003EFF77 /* AppDelegate.swift */; };
 		F9D35F3128FDF5A4003EFF77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D35F3028FDF5A4003EFF77 /* SceneDelegate.swift */; };
 		F9D35F3328FDF5A4003EFF77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D35F3228FDF5A4003EFF77 /* ViewController.swift */; };
@@ -36,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F96D8B8F2907292E00CCF92F /* MultiplicationInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationInputVC.swift; sourceTree = "<group>"; };
+		F96D8B912907295D00CCF92F /* MultiplicationVisualVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationVisualVC.swift; sourceTree = "<group>"; };
+		F96D8B932907297B00CCF92F /* ArenaWelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaWelcomeScreen.swift; sourceTree = "<group>"; };
+		F96D8B952907299300CCF92F /* ArenaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaVC.swift; sourceTree = "<group>"; };
+		F96D8B97290729AC00CCF92F /* ArenaResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaResultsVC.swift; sourceTree = "<group>"; };
 		F9D35F2B28FDF5A4003EFF77 /* QuickMathsBeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickMathsBeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9D35F2E28FDF5A4003EFF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9D35F3028FDF5A4003EFF77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +116,11 @@
 				F9D35F3728FDF5A6003EFF77 /* Assets.xcassets */,
 				F9D35F3928FDF5A6003EFF77 /* LaunchScreen.storyboard */,
 				F9D35F3C28FDF5A6003EFF77 /* Info.plist */,
+				F96D8B8F2907292E00CCF92F /* MultiplicationInputVC.swift */,
+				F96D8B912907295D00CCF92F /* MultiplicationVisualVC.swift */,
+				F96D8B932907297B00CCF92F /* ArenaWelcomeScreen.swift */,
+				F96D8B952907299300CCF92F /* ArenaVC.swift */,
+				F96D8B97290729AC00CCF92F /* ArenaResultsVC.swift */,
 			);
 			path = QuickMathsBeta;
 			sourceTree = "<group>";
@@ -258,7 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F96D8B942907297B00CCF92F /* ArenaWelcomeScreen.swift in Sources */,
+				F96D8B98290729AC00CCF92F /* ArenaResultsVC.swift in Sources */,
 				F9D35F3328FDF5A4003EFF77 /* ViewController.swift in Sources */,
+				F96D8B902907292E00CCF92F /* MultiplicationInputVC.swift in Sources */,
+				F96D8B962907299300CCF92F /* ArenaVC.swift in Sources */,
+				F96D8B922907295D00CCF92F /* MultiplicationVisualVC.swift in Sources */,
 				F9D35F2F28FDF5A4003EFF77 /* AppDelegate.swift in Sources */,
 				F9D35F3128FDF5A4003EFF77 /* SceneDelegate.swift in Sources */,
 			);
