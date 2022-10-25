@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-122" y="-407"/>
         </scene>
-        <!--View Controller-->
+        <!--Arena ResultsVC-->
         <scene sceneID="evH-Db-Usy">
             <objects>
-                <viewController id="B10-zw-of2" sceneMemberID="viewController">
+                <viewController id="B10-zw-of2" customClass="ArenaResultsVC" customModule="QuickMathsBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kAD-60-kpZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,10 +110,10 @@ Time: 16.2 seconds</string>
             </objects>
             <point key="canvasLocation" x="-3447.6923076923076" y="251.65876777251182"/>
         </scene>
-        <!--View Controller-->
+        <!--ArenaVC-->
         <scene sceneID="69Z-Xh-bnN">
             <objects>
-                <viewController id="FZf-aG-hoe" sceneMemberID="viewController">
+                <viewController id="FZf-aG-hoe" customClass="ArenaVC" customModule="QuickMathsBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dpy-Fr-tEb">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,6 +278,9 @@ Time: 16.2 seconds</string>
                                                         <state key="normal" title="Reset">
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="resetScreen:" destination="FZf-aG-hoe" eventType="touchUpInside" id="uUT-Fz-2nh"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S71-9y-IXt">
                                                         <rect key="frame" x="0.0" y="122" width="157" height="46"/>
@@ -291,7 +294,7 @@ Time: 16.2 seconds</string>
                                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="B10-zw-of2" kind="show" id="5YH-hd-Uk1"/>
+                                                            <action selector="submit:" destination="FZf-aG-hoe" eventType="touchUpInside" id="rRi-Vb-1Se"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -320,15 +323,29 @@ Time: 16.2 seconds</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dbs-iv-hkZ"/>
+                    <connections>
+                        <outlet property="fifthLabel" destination="ceB-Yb-t3i" id="PaG-JK-xHp"/>
+                        <outlet property="fifthTextField" destination="tZf-uu-XcE" id="JWi-oC-SpQ"/>
+                        <outlet property="firstLabel" destination="AAR-Qk-Zqi" id="Nyb-TJ-t7Y"/>
+                        <outlet property="firstTextField" destination="p3u-fX-oxI" id="Xc4-Ha-gk1"/>
+                        <outlet property="fourthLabel" destination="ddw-lf-cUU" id="mqF-Ah-Dg9"/>
+                        <outlet property="fourthTextField" destination="TWC-f4-iYb" id="3ow-aW-3gR"/>
+                        <outlet property="secondLabel" destination="6bF-rp-ca8" id="Lo3-fK-3kR"/>
+                        <outlet property="secondTextField" destination="Vay-Xf-r3Z" id="P93-Nw-QpM"/>
+                        <outlet property="thirdLabel" destination="1WY-F6-Hdt" id="gR4-5Z-In4"/>
+                        <outlet property="thirdTextField" destination="2YN-hE-nTM" id="gxR-Sn-7Ge"/>
+                        <outlet property="timerLabel" destination="FNy-Fa-f2p" id="cBq-Kl-EP0"/>
+                        <segue destination="B10-zw-of2" kind="show" identifier="arenaToResults" id="p1N-vd-bMS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FL1-Mi-H8P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2500" y="251.65876777251182"/>
         </scene>
-        <!--View Controller-->
+        <!--Arena Welcome Screen-->
         <scene sceneID="EFK-Bb-YCQ">
             <objects>
-                <viewController id="9Nc-y2-hcp" sceneMemberID="viewController">
+                <viewController id="9Nc-y2-hcp" customClass="ArenaWelcomeScreen" customModule="QuickMathsBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hle-KY-DCM">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -413,10 +430,10 @@ Time: 16.2 seconds</string>
             </objects>
             <point key="canvasLocation" x="-1598.4615384615383" y="251.65876777251182"/>
         </scene>
-        <!--View Controller-->
+        <!--Multiplication InputVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QuickMathsBeta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MultiplicationInputVC" customModule="QuickMathsBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -556,10 +573,10 @@ Time: 16.2 seconds</string>
             </objects>
             <point key="canvasLocation" x="1486" y="252"/>
         </scene>
-        <!--View Controller-->
+        <!--Multiplication VisualVC-->
         <scene sceneID="zxh-sn-NKM">
             <objects>
-                <viewController id="SUK-By-i2H" sceneMemberID="viewController">
+                <viewController id="SUK-By-i2H" customClass="MultiplicationVisualVC" customModule="QuickMathsBeta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zXE-Uz-dwG">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
