@@ -9,6 +9,9 @@ import UIKit
 
 class ArenaVC: UIViewController {
     
+    var accuracy = 0
+    var userTime = 0
+    
     //Setup multiplicands
   
     var leftOne: Int = 0
@@ -42,6 +45,8 @@ class ArenaVC: UIViewController {
     @IBOutlet weak var fourthTextField: UITextField!
     @IBOutlet weak var fifthTextField: UITextField!
     
+    var textFieldArray:[UITextField] = []
+    
     // Connect timer label and reset and submit buttons
     
     var timer = Timer()
@@ -74,13 +79,22 @@ class ArenaVC: UIViewController {
     @IBAction func resetScreen(_ sender: Any) {
         timerCounting = true
         count = -1
+        
+        for i in textFieldArray.indices {
+            textFieldArray[i].text = ""
+        }
+        
+        populateNumbers()
     }
     
     
     @IBAction func submit(_ sender: Any) {
         if timerCounting{
-            self.performSegue(withIdentifier: "arenaToResults", sender: self)
-            timerCounting = false
+            if verifyInput(){
+                checkAnswers()
+                self.performSegue(withIdentifier: "arenaToResults", sender: self)
+                timerCounting = false
+            }
         }
         
     }
@@ -95,9 +109,42 @@ class ArenaVC: UIViewController {
         
     }
     
-    func verifyInput(){
+    func verifyInput()-> Bool{
+        
+        for i in textFieldArray.indices {
+            if textFieldArray[i].text == ""{
+                return false
+            }
+        }
+        return true
+    }
+    
+    func checkAnswers(){
+        var numCorrect = 0.0
+        
+        for i in textFieldArray.indices {
+            if multiplicandArray[2*i] * multiplicandArray[(2*i)+1] == Int(textFieldArray[i].text!) {
+                print("Correct")
+                numCorrect += 1
+            }
+            else {
+                textFieldArray[i].textColor = UIColor.red
+            }
+        }
+        var rawScore = numCorrect / 5.0
+        print(rawScore)
+        self.accuracy = Int(rawScore*100)
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "arenaToResults"{
+            let destVC = segue.destination as! ArenaResultsVC
+            destVC.accuracy = self.accuracy
+            destVC.time = self.timerLabel.text
+        }
+    }
+
     
     
     override func viewDidLoad() {
@@ -107,6 +154,8 @@ class ArenaVC: UIViewController {
         multiplicandArray = [leftOne, rightOne, leftTwo, rightTwo, leftThree, rightThree, leftFour, rightFour,leftFive, rightFive]
         
         labelArray = [firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel]
+        
+        textFieldArray = [firstTextField, secondTextField, thirdTextField, fourthTextField, fifthTextField]
         
         populateNumbers()
         
