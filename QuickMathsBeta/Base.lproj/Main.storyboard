@@ -24,7 +24,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wWa-TI-lQa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-122" y="-407"/>
+            <point key="canvasLocation" x="-148" y="-428"/>
         </scene>
         <!--Arena ResultsVC-->
         <scene sceneID="evH-Db-Usy">
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYE-uh-zYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3447.6923076923076" y="251.65876777251182"/>
+            <point key="canvasLocation" x="-3360" y="252"/>
         </scene>
         <!--ArenaVC-->
         <scene sceneID="69Z-Xh-bnN">
@@ -439,7 +439,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6GD-wD-pzV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1598.4615384615383" y="251.65876777251182"/>
+            <point key="canvasLocation" x="-1662" y="252"/>
         </scene>
         <!--Multiplication InputVC-->
         <scene sceneID="tne-QT-ifu">
@@ -472,15 +472,14 @@
                                         <rect key="frame" x="0.0" y="277.33333333333337" width="390" height="289.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="VHw-Md-jjJ">
-                                                <rect key="frame" x="37" y="51" width="317" height="106"/>
+                                                <rect key="frame" x="37" y="51" width="317" height="132.66666666666666"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="83" translatesAutoresizingMaskIntoConstraints="NO" id="2Cd-fN-Fem">
-                                                        <rect key="frame" x="0.0" y="0.0" width="317" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="317" height="46.333333333333336"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uwW-2W-EXe">
-                                                                <rect key="frame" x="0.0" y="0.0" width="146" height="33"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="146" height="46.333333333333336"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="33" id="CJa-I8-HpD"/>
                                                                     <constraint firstAttribute="width" constant="146" id="R05-yf-gt5"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
@@ -488,11 +487,10 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsv-MK-agh">
-                                                                <rect key="frame" x="229" y="0.0" width="88" height="33"/>
+                                                                <rect key="frame" x="229" y="0.0" width="88" height="46.333333333333336"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="88" id="CCh-8g-wo9"/>
-                                                                    <constraint firstAttribute="height" constant="34" id="d7d-Qc-hpY"/>
                                                                 </constraints>
                                                                 <color key="textColor" red="0.033094745129999999" green="0.60308092830000004" blue="0.99354714160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
@@ -501,23 +499,21 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="g5Y-bK-vAE">
-                                                        <rect key="frame" x="0.0" y="73" width="317" height="33"/>
+                                                        <rect key="frame" x="0.0" y="86.333333333333371" width="317" height="46.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Second Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gbc-hX-gjf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="185" height="33"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="185" height="46.333333333333336"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="185" id="McB-d4-c8Z"/>
-                                                                    <constraint firstAttribute="height" constant="33" id="tdX-xh-w6a"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
                                                                 <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Drj-5G-iV3">
-                                                                <rect key="frame" x="229" y="0.0" width="88" height="33"/>
+                                                                <rect key="frame" x="229" y="0.0" width="88" height="46.333333333333336"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="88" id="H3n-SH-bS7"/>
-                                                                    <constraint firstAttribute="height" constant="34" id="qje-Oc-fg9"/>
                                                                 </constraints>
                                                                 <color key="textColor" red="0.033094745129999999" green="0.60308092830000004" blue="0.99354714160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
@@ -551,6 +547,7 @@
                                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="showBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KvB-gl-2sc"/>
                                                     <segue destination="SUK-By-i2H" kind="show" id="IGu-td-fCy"/>
                                                 </connections>
                                             </button>
@@ -573,16 +570,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="HQ1-V1-IPF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="67C-7l-xTF"/>
+                            <constraint firstItem="HQ1-V1-IPF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FeR-Sp-syd"/>
                             <constraint firstItem="HQ1-V1-IPF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="K2M-fP-XVk"/>
                             <constraint firstItem="HQ1-V1-IPF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Mvd-6Q-nPW"/>
                             <constraint firstAttribute="bottom" secondItem="HQ1-V1-IPF" secondAttribute="bottom" id="ikH-Ua-iLy"/>
+                            <constraint firstItem="HQ1-V1-IPF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pUW-Cf-Nux"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qBz-nO-2gu"/>
+                    <connections>
+                        <outlet property="firstNumber" destination="jsv-MK-agh" id="BTr-bU-gZM"/>
+                        <outlet property="secondNumber" destination="Drj-5G-iV3" id="7eK-6c-kmr"/>
+                        <outlet property="showBtn" destination="0Un-iA-TWm" id="dB8-yI-lfJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="252"/>
+            <point key="canvasLocation" x="1438" y="252"/>
         </scene>
         <!--Multiplication VisualVC-->
         <scene sceneID="zxh-sn-NKM">
@@ -698,7 +702,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1N4-yG-DKg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2428" y="252"/>
+            <point key="canvasLocation" x="2365" y="252"/>
         </scene>
         <!--Calculate-->
         <scene sceneID="lgw-1l-Ocw">
