@@ -82,6 +82,7 @@ class ArenaVC: UIViewController {
         
         for i in textFieldArray.indices {
             textFieldArray[i].text = ""
+            textFieldArray[i].textColor = UIColor.systemBlue
         }
         
         populateNumbers()
@@ -126,6 +127,7 @@ class ArenaVC: UIViewController {
             if multiplicandArray[2*i] * multiplicandArray[(2*i)+1] == Int(textFieldArray[i].text!) {
                 print("Correct")
                 numCorrect += 1
+                textFieldArray[i].textColor = UIColor.systemGreen
             }
             else {
                 textFieldArray[i].textColor = UIColor.red
