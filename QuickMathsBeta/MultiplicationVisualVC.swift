@@ -37,9 +37,6 @@ class MultiplicationVisualVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 0
 
         mainExpression.text = String(format: "%.0f", mainMultiplier) + " X " + String(format: "%.0f", mainMultiplicand) + ":"
         
