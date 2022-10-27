@@ -483,7 +483,7 @@
                                                                     <constraint firstAttribute="width" constant="146" id="R05-yf-gt5"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="28"/>
-                                                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" red="1" green="0.57647058823529407" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsv-MK-agh">
@@ -559,6 +559,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="YFW-jI-vJV" firstAttribute="height" secondItem="39L-r1-jh5" secondAttribute="height" multiplier="1.48205" id="171-hX-v50"/>
                                     <constraint firstItem="loF-uJ-aKe" firstAttribute="height" secondItem="YFW-jI-vJV" secondAttribute="height" multiplier="0.67474" id="mYZ-Ok-9cR"/>
