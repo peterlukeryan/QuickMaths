@@ -9,8 +9,12 @@ import UIKit
 
 class ArenaResultsVC: UIViewController {
     
+    //Setup state information, passed from ArenaVC
+    
     var accuracy:Int?
     var time:String?
+    
+    //Setup labels
     
     @IBOutlet weak var accuracyLabel: UILabel!
     
@@ -19,6 +23,8 @@ class ArenaResultsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Unwrap data, as it is implied that values are non-nil, as segue passed data validation
         
         accuracyLabel.text = "Accuracy: \(accuracy!)%"
         timeLabel.text = "Time: \(time!)s"
