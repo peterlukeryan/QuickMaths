@@ -30,7 +30,7 @@ class MultiplicationInputVC: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         // perform input validation -- at least one number must be 2 digits long
-        else if ((Int(firstNumberField.text!) ?? 0) + (Int(firstNumberField.text!) ?? 0) <= 18) {
+        else if ((Int(firstNumberField.text!) ?? 0) + (Int(secondNumberField.text!) ?? 0) <= 18) {
             let alert = UIAlertController(title: "Invalid inputs!", message: "One number must be at least 2 digits long!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { _ in
                 self.dismiss(animated: true, completion: nil)
