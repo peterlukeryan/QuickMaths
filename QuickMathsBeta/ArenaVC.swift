@@ -116,7 +116,13 @@ class ArenaVC: UIViewController {
   
     func populateNumbers(){
         for i in multiplicandArray.indices {
-            multiplicandArray[i] = Int.random(in: 2...99)
+            if i > 0 && multiplicandArray[i-1] < 10 {
+                multiplicandArray[i] = Int.random(in: 10...99)
+            }
+            else {
+                multiplicandArray[i] = Int.random(in: 2...99)
+            }
+           
         }
         for i in labelArray.indices {
             labelArray[i].text = "\(multiplicandArray[2*i]) X \(multiplicandArray[(2*i)+1])"
