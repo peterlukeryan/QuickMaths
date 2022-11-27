@@ -51,11 +51,26 @@ class ArenaVC: UIViewController {
     
     var textFieldArray:[UITextField] = []
     
+    // Connect thumbs up images
+    
+    @IBOutlet weak var firstImage: UIImageView!
+    
+    @IBOutlet weak var secondImage: UIImageView!
+    
+    @IBOutlet weak var thirdImage: UIImageView!
+    @IBOutlet weak var fourthImage: UIImageView!
+    
+    @IBOutlet weak var fifthImage: UIImageView!
+    
+    var imageArray:[UIImageView] = []
     // Connect timer label and reset and submit buttons
     
     var timer = Timer()
     var count = 0
     var timerCounting = true
+    
+    @IBOutlet weak var frameView: UIView!
+    
     
     //Objc function to increment counter and format timer label
     @objc func timerCounter() -> Void {
@@ -93,7 +108,7 @@ class ArenaVC: UIViewController {
         
         for i in textFieldArray.indices {
             textFieldArray[i].text = ""
-            textFieldArray[i].textColor = UIColor.systemBlue
+            imageArray[i].isHidden = true
         }
         
         populateNumbers()
@@ -125,7 +140,12 @@ class ArenaVC: UIViewController {
            
         }
         for i in labelArray.indices {
-            labelArray[i].text = "\(multiplicandArray[2*i]) X \(multiplicandArray[(2*i)+1])"
+            if multiplicandArray[2*i] < 10 || multiplicandArray[(2*i)+1] < 10 {
+                labelArray[i].text = "\(multiplicandArray[2*i]) X \(multiplicandArray[(2*i)+1])    = "
+            }
+            else {
+                labelArray[i].text = "\(multiplicandArray[2*i]) X \(multiplicandArray[(2*i)+1])  = "
+            }
         }
         
     }
@@ -152,10 +172,12 @@ class ArenaVC: UIViewController {
         for i in textFieldArray.indices {
             if multiplicandArray[2*i] * multiplicandArray[(2*i)+1] == Int(textFieldArray[i].text!) {
                 numCorrect += 1
-                textFieldArray[i].textColor = UIColor.systemGreen
+                imageArray[i].image = UIImage(named: "thumbsUp")!
+                imageArray[i].isHidden = false
             }
             else {
-                textFieldArray[i].textColor = UIColor.red
+                imageArray[i].image = UIImage(named: "thumbsDown2")!
+                imageArray[i].isHidden = false
             }
         }
       
@@ -182,6 +204,9 @@ class ArenaVC: UIViewController {
         
         super.viewDidLoad()
         
+        frameView.layer.cornerRadius = 10
+        frameView.layer.borderColor = UIColor.black.cgColor
+        frameView.layer.borderWidth = 1
         //Populate all arrays, setup initial randomization, timer
         
         multiplicandArray = [leftOne, rightOne, leftTwo, rightTwo, leftThree, rightThree, leftFour, rightFour,leftFive, rightFive]
@@ -189,6 +214,8 @@ class ArenaVC: UIViewController {
         labelArray = [firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel]
         
         textFieldArray = [firstTextField, secondTextField, thirdTextField, fourthTextField, fifthTextField]
+        
+        imageArray = [firstImage, secondImage, thirdImage, fourthImage, fifthImage]
         
         populateNumbers()
         
