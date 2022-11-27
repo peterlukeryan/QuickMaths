@@ -24,6 +24,11 @@ class MultiplicationInputVC: UIViewController {
     @IBOutlet weak var runningSum3Lbl: UILabel!
     @IBOutlet weak var runningSum4Lbl: UILabel!
     
+    @IBOutlet weak var runningProd1Lbl: UILabel!
+    @IBOutlet weak var runningProd2Lbl: UILabel!
+    @IBOutlet weak var runningProd3Lbl: UILabel!
+    @IBOutlet weak var runningProd4Lbl: UILabel!
+    
     var mainMultiplier = 0.0
     var mainMultiplicand = 0.0
     
@@ -68,6 +73,10 @@ class MultiplicationInputVC: UIViewController {
         subExp2.alpha = 0
         subExp3.alpha = 0
         subExp4.alpha = 0
+        runningProd1Lbl.alpha = 0
+        runningProd2Lbl.alpha = 0
+        runningProd3Lbl.alpha = 0
+        runningProd4Lbl.alpha = 0
         
         // 2 x 2
         if (mainMultiplier >= 10 && mainMultiplicand >= 10) {
@@ -88,9 +97,14 @@ class MultiplicationInputVC: UIViewController {
             let runningSum4 = subMultiplierRem * subMultiplicandRem
             
             runningSum1Lbl.text = String(format: "%.0f", runningSum1)
-            runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " = " + String(format: "%.0f", runningSum1 + runningSum2)
-            runningSum3Lbl.text = String(format: "%.0f", runningSum1 + runningSum2) + " + " + String(format: "%.0f", runningSum3) + " = " + String(format: "%.0f", runningSum1 + runningSum2 + runningSum3)
-            runningSum4Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3) + " + " + String(format: "%.0f", runningSum4) + " = " + String(format: "%.0f", runningSum1 + runningSum2 + runningSum3 + runningSum4)
+            runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " ="
+            runningSum3Lbl.text = String(format: "%.0f", runningSum1 + runningSum2) + " + " + String(format: "%.0f", runningSum3) + " ="
+            runningSum4Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3) + " + " + String(format: "%.0f", runningSum4) + " ="
+            
+            runningProd1Lbl.text = String(format: "%.0f", runningSum1)
+            runningProd2Lbl.text = String(format: "%.0f", runningSum1 + runningSum2)
+            runningProd3Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3)
+            runningProd4Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3 + runningSum4)
         }
         // 2 x 1
         else if (mainMultiplier >= 10) {
@@ -105,7 +119,10 @@ class MultiplicationInputVC: UIViewController {
             let runningSum2 = subMultiplierRem * mainMultiplicand
             
             runningSum1Lbl.text = String(format: "%.0f", runningSum1)
-            runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " = " + String(format: "%.0f", runningSum1 + runningSum2)
+            runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " ="
+            
+            runningProd1Lbl.text = String(format: "%.0f", runningSum1)
+            runningProd2Lbl.text = String(format: "%.0f", runningSum1 + runningSum2)
         }
         // 1 x 2
         else {
@@ -120,7 +137,10 @@ class MultiplicationInputVC: UIViewController {
             let runningSum2 = mainMultiplier * subMultiplicandRem
             
             runningSum1Lbl.text = String(format: "%.0f", runningSum1)
-            runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " = " + String(format: "%.0f", runningSum1 + runningSum2)
+            runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " ="
+            
+            runningProd1Lbl.text = String(format: "%.0f", runningSum1)
+            runningProd2Lbl.text = String(format: "%.0f", runningSum1 + runningSum2)
         }
         deployAnimation()
     }
@@ -159,6 +179,7 @@ class MultiplicationInputVC: UIViewController {
 //                self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored3)
                 self.runningSum1Lbl.alpha = 1.0
                 self.subExp1.alpha = 1.0
+                self.runningProd1Lbl.alpha = 1.0
             })
             
             //self.mainExpression.textColor = #colorLiteral(red: 1, green: 0.5764705882, blue: 0, alpha: 1)
@@ -168,6 +189,7 @@ class MultiplicationInputVC: UIViewController {
 //                self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored4)
                 self.runningSum2Lbl.alpha = 1.0
                 self.subExp2.alpha = 1.0
+                self.runningProd2Lbl.alpha = 1.0
             })
             
             //self.mainExpression.textColor = #colorLiteral(red: 1, green: 0.5764705882, blue: 0, alpha: 1)
@@ -178,12 +200,14 @@ class MultiplicationInputVC: UIViewController {
 //                    self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored3)
                     self.runningSum3Lbl.alpha = 1.0
                     self.subExp3.alpha = 1.0
+                    self.runningProd3Lbl.alpha = 1.0
                 })
                 UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.30, animations: {
 //                    self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored2)
 //                    self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored4)
                     self.runningSum4Lbl.alpha = 1.0
                     self.subExp4.alpha = 1.0
+                    self.runningProd4Lbl.alpha = 1.0
                 })
             }
             
