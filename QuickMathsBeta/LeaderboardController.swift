@@ -37,7 +37,18 @@ class LeaderboardController: UITableViewController {
         dummy.time = "Time"
         dummy.timestamp = "Date"
         
-        topScores.append(dummy)
+        if topScores.count == 0 {
+            topScores.append(dummy)
+        }
+        else {
+            var temp = topScores.first
+            topScores[0] = dummy
+            topScores.append(temp!)
+        }
+        
+       
+        
+       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
