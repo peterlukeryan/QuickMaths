@@ -119,7 +119,24 @@ class ArenaVC: UIViewController {
     @IBAction func submit(_ sender: Any) {
         if timerCounting{
             if verifyInput(){
+                
                 checkAnswers()
+                
+                var currentScore = ScoreItem()
+                currentScore.accuracy = self.accuracy
+                currentScore.time = self.timerLabel.text!
+                
+                //create date for leaderboard
+                let date = Date()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                currentScore.timestamp = dateFormatter.string(from: date)
+                print(currentScore.timestamp)
+                // append current score to Leaderboard's array
+                let destVC = self.tabBarController?.viewControllers?[2] as! LeaderboardController
+                destVC.topScores.append(currentScore)
+                destVC.tableView.reloadData()
+                
                 self.performSegue(withIdentifier: "arenaToResults", sender: self)
                 timerCounting = false
             }

@@ -20,13 +20,24 @@ struct ScoreItem: Codable {
 
 // How can we append data to this from another VC?
 // How do we keep the array populated after user navigates off this VC?
-var topScores: Array<ScoreItem> = []
+
 
 class LeaderboardController: UITableViewController {
-
+    
+    
+    
+    var topScores: Array<ScoreItem> = []
+    var dummy = ScoreItem()
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        dummy.accuracy = 80
+        dummy.time = "Time"
+        dummy.timestamp = "Date"
+        
+        topScores.append(dummy)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -41,18 +52,27 @@ class LeaderboardController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topScores.count
+        
+            return topScores.count
+        
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
 
         // Configure the cell...
+        let timeString = cell.viewWithTag(1) as! UILabel
+        let date = cell.viewWithTag(2) as! UILabel
+   
+        timeString.text = topScores[indexPath.row].time
+        date.text = topScores[indexPath.row].timestamp
+    
+     
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
