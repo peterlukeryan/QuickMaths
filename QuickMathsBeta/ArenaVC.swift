@@ -10,7 +10,7 @@ import UIKit
 class ArenaVC: UIViewController {
     
     //Setup  accuracy and time state variables for use in results VC
-   
+
     var accuracy = 0
     var userTime = 0
     
@@ -93,12 +93,120 @@ class ArenaVC: UIViewController {
     
     func makeTimeString(minutes:Int, seconds:Int)-> String{
         var timeString = ""
-        timeString += String(format:"0%2d", minutes)
+        timeString += String(format:"0%1d", minutes)
         timeString += " : "
         timeString += String(format:"%2d", seconds)
         return timeString
     }
+    
     @IBOutlet weak var timerLabel: UILabel!
+    
+    //Functions to handle submit button validity
+    
+    @IBOutlet weak var subButton: UIButton!
+    
+    var allInputsEntered = false
+    
+    @IBAction func FirstInputEntered(_ sender: Any) {
+        for i in 0..<textFieldArray.count {
+            if textFieldArray[i].text == "" {
+                allInputsEntered = false
+                break
+            }
+            if i == textFieldArray.count-1 {
+                allInputsEntered = true
+            }
+        }
+        if allInputsEntered {
+            subButton.isEnabled = true
+            subButton.backgroundColor = UIColor.systemBlue
+        }
+        else {
+            subButton.backgroundColor = UIColor.lightGray
+            subButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func secondInputEntered(_ sender: Any) {
+        for i in 0..<textFieldArray.count {
+            if textFieldArray[i].text == "" {
+                allInputsEntered = false
+                break
+            }
+            if i == textFieldArray.count-1 {
+                allInputsEntered = true
+            }
+        }
+        if allInputsEntered {
+            subButton.isEnabled = true
+            subButton.backgroundColor = UIColor.systemBlue
+        }
+        else {
+            subButton.backgroundColor = UIColor.lightGray
+            subButton.isEnabled = false
+        }
+    }
+    @IBAction func thirdInputEntered(_ sender: Any) {
+        for i in 0..<textFieldArray.count {
+            if textFieldArray[i].text == "" {
+                allInputsEntered = false
+                break
+            }
+            if i == textFieldArray.count-1 {
+                allInputsEntered = true
+            }
+        }
+        if allInputsEntered {
+            subButton.isEnabled = true
+            subButton.backgroundColor = UIColor.systemBlue
+        }
+        else {
+            subButton.backgroundColor = UIColor.lightGray
+            subButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func fourthInputEntered(_ sender: Any) {
+        for i in 0..<textFieldArray.count {
+            if textFieldArray[i].text == "" {
+                allInputsEntered = false
+                break
+            }
+            if i == textFieldArray.count-1 {
+                allInputsEntered = true
+            }
+        }
+        if allInputsEntered {
+            subButton.isEnabled = true
+            subButton.backgroundColor = UIColor.systemBlue
+        }
+        else {
+            subButton.backgroundColor = UIColor.lightGray
+            subButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func fifthInputEntered(_ sender: Any) {
+        for i in 0..<textFieldArray.count {
+            if textFieldArray[i].text == "" {
+                allInputsEntered = false
+                break
+            }
+            if i == textFieldArray.count-1 {
+                allInputsEntered = true
+            }
+        }
+        if allInputsEntered {
+            subButton.isEnabled = true
+            subButton.backgroundColor = UIColor.systemBlue
+        }
+        else {
+            subButton.backgroundColor = UIColor.lightGray
+            subButton.isEnabled = false
+        }
+    }
+    
+    
     
     //Function to clear out screen, stop timer, clear text fields, and repopulate numbers
     
@@ -110,13 +218,15 @@ class ArenaVC: UIViewController {
             textFieldArray[i].text = ""
             imageArray[i].isHidden = true
         }
-        
+        subButton.isEnabled = false
+        subButton.backgroundColor = UIColor.lightGray
         populateNumbers()
     }
     
     // Function to submit all input, do not allow if missing inputs
     
     @IBAction func submit(_ sender: Any) {
+        
         if timerCounting{
             if verifyInput(){
                 
@@ -139,9 +249,11 @@ class ArenaVC: UIViewController {
                 
                 self.performSegue(withIdentifier: "arenaToResults", sender: self)
                 timerCounting = false
+                subButton.isEnabled = false
+                subButton.backgroundColor = UIColor.lightGray
             }
         }
-        
+       
     }
     
     //Setup random numbers, populate labels
@@ -221,6 +333,11 @@ class ArenaVC: UIViewController {
         
         super.viewDidLoad()
         
+        subButton.setTitleColor(UIColor.gray, for: .disabled)
+        
+        subButton.isEnabled = false
+        subButton.backgroundColor = UIColor.lightGray
+        
         frameView.layer.cornerRadius = 10
         frameView.layer.borderColor = UIColor.black.cgColor
         frameView.layer.borderWidth = 1
@@ -238,6 +355,11 @@ class ArenaVC: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        subButton.isEnabled = false
+        subButton.backgroundColor = UIColor.lightGray
     }
     
 }
