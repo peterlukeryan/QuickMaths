@@ -23,8 +23,7 @@ class MultiplicationInputVC: UIViewController {
     @IBOutlet weak var runningSum2Lbl: UILabel!
     @IBOutlet weak var runningSum3Lbl: UILabel!
     @IBOutlet weak var runningSum4Lbl: UILabel!
-    
-    @IBOutlet weak var runningProd1Lbl: UILabel!
+
     @IBOutlet weak var runningProd2Lbl: UILabel!
     @IBOutlet weak var runningProd3Lbl: UILabel!
     @IBOutlet weak var runningProd4Lbl: UILabel!
@@ -35,6 +34,11 @@ class MultiplicationInputVC: UIViewController {
     override func viewDidLoad() {
         
     }
+    
+    // make an array of labels + variables that correspond to each step of the calculation
+    // make it so that the next button increments the index of the array and starts a new animation that deploys the desired values
+    // change the text in the labels
+    // adjust user flow diagram
     
     @IBAction func nextBtn(_ sender: Any) {
         // perform input validation -- length of input must be less than 99
@@ -73,7 +77,6 @@ class MultiplicationInputVC: UIViewController {
         subExp2.alpha = 0
         subExp3.alpha = 0
         subExp4.alpha = 0
-        runningProd1Lbl.alpha = 0
         runningProd2Lbl.alpha = 0
         runningProd3Lbl.alpha = 0
         runningProd4Lbl.alpha = 0
@@ -101,7 +104,6 @@ class MultiplicationInputVC: UIViewController {
             runningSum3Lbl.text = String(format: "%.0f", runningSum1 + runningSum2) + " + " + String(format: "%.0f", runningSum3) + " ="
             runningSum4Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3) + " + " + String(format: "%.0f", runningSum4) + " ="
             
-            runningProd1Lbl.text = String(format: "%.0f", runningSum1)
             runningProd2Lbl.text = String(format: "%.0f", runningSum1 + runningSum2)
             runningProd3Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3)
             runningProd4Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3 + runningSum4)
@@ -121,7 +123,6 @@ class MultiplicationInputVC: UIViewController {
             runningSum1Lbl.text = String(format: "%.0f", runningSum1)
             runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " ="
             
-            runningProd1Lbl.text = String(format: "%.0f", runningSum1)
             runningProd2Lbl.text = String(format: "%.0f", runningSum1 + runningSum2)
         }
         // 1 x 2
@@ -139,7 +140,6 @@ class MultiplicationInputVC: UIViewController {
             runningSum1Lbl.text = String(format: "%.0f", runningSum1)
             runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " ="
             
-            runningProd1Lbl.text = String(format: "%.0f", runningSum1)
             runningProd2Lbl.text = String(format: "%.0f", runningSum1 + runningSum2)
         }
         deployAnimation()
@@ -179,7 +179,6 @@ class MultiplicationInputVC: UIViewController {
 //                self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored3)
                 self.runningSum1Lbl.alpha = 1.0
                 self.subExp1.alpha = 1.0
-                self.runningProd1Lbl.alpha = 1.0
             })
             
             //self.mainExpression.textColor = #colorLiteral(red: 1, green: 0.5764705882, blue: 0, alpha: 1)
