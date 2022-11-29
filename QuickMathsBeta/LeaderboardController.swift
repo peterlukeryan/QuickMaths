@@ -9,11 +9,11 @@ import UIKit
 
 struct ScoreItem: Codable {
     init() {
-        accuracy = 0
+        accuracy = "00%"
         time = "00:00"
         timestamp = "MM/DD/YYYY"
     }
-    var accuracy: Int
+    var accuracy: String
     var time: String
     var timestamp: String
 }
@@ -33,7 +33,7 @@ class LeaderboardController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dummy.accuracy = 80
+        dummy.accuracy = "Accuracy"
         dummy.time = "Time"
         dummy.timestamp = "Date"
         
@@ -73,13 +73,13 @@ class LeaderboardController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
 
         // Configure the cell...
+        let accuracy = cell.viewWithTag(3) as! UILabel
         let timeString = cell.viewWithTag(1) as! UILabel
         let date = cell.viewWithTag(2) as! UILabel
    
+        accuracy.text = topScores[indexPath.row].accuracy + "%"
         timeString.text = topScores[indexPath.row].time
         date.text = topScores[indexPath.row].timestamp
-    
-     
 
         return cell
     }

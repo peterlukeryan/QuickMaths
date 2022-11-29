@@ -233,7 +233,7 @@ class ArenaVC: UIViewController {
                 checkAnswers()
                 
                 var currentScore = ScoreItem()
-                currentScore.accuracy = self.accuracy
+                currentScore.accuracy = String(self.accuracy)
                 currentScore.time = self.timerLabel.text!
                 
                 //create date for leaderboard
@@ -312,7 +312,7 @@ class ArenaVC: UIViewController {
       
         //Convert ratio of correct answers to accuracy
       
-        var rawScore = numCorrect / 5.0
+        let rawScore = numCorrect / 5.0
         print(rawScore)
         self.accuracy = Int(rawScore*100)
         
