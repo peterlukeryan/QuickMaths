@@ -233,7 +233,7 @@ class ArenaVC: UIViewController {
                 checkAnswers()
                 
                 var currentScore = ScoreItem()
-                currentScore.accuracy = String(self.accuracy)
+                currentScore.accuracy = self.accuracy
                 currentScore.time = self.timerLabel.text!
                 
                 //create date for leaderboard
@@ -332,6 +332,7 @@ class ArenaVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         
         subButton.setTitleColor(UIColor.gray, for: .disabled)
         
