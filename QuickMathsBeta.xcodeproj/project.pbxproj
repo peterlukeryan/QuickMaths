@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FD90C902932D7BB00D77659 /* LeaderboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD90C8F2932D7BB00D77659 /* LeaderboardController.swift */; };
+		F96D3A062936DF8200046F7C /* DemoScreenIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D3A052936DF8200046F7C /* DemoScreenIntro.swift */; };
 		F96D8B902907292E00CCF92F /* MultiplicationInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D8B8F2907292E00CCF92F /* MultiplicationInputVC.swift */; };
 		F96D8B942907297B00CCF92F /* ArenaWelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D8B932907297B00CCF92F /* ArenaWelcomeScreen.swift */; };
 		F96D8B962907299300CCF92F /* ArenaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96D8B952907299300CCF92F /* ArenaVC.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		3FD90C8F2932D7BB00D77659 /* LeaderboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardController.swift; sourceTree = "<group>"; };
+		F96D3A052936DF8200046F7C /* DemoScreenIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoScreenIntro.swift; sourceTree = "<group>"; };
 		F96D8B8F2907292E00CCF92F /* MultiplicationInputVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationInputVC.swift; sourceTree = "<group>"; };
 		F96D8B932907297B00CCF92F /* ArenaWelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaWelcomeScreen.swift; sourceTree = "<group>"; };
 		F96D8B952907299300CCF92F /* ArenaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaVC.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				F96D8B932907297B00CCF92F /* ArenaWelcomeScreen.swift */,
 				F96D8B952907299300CCF92F /* ArenaVC.swift */,
 				F96D8B97290729AC00CCF92F /* ArenaResultsVC.swift */,
+				F96D3A052936DF8200046F7C /* DemoScreenIntro.swift */,
 			);
 			path = QuickMathsBeta;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				F96D8B942907297B00CCF92F /* ArenaWelcomeScreen.swift in Sources */,
 				F96D8B98290729AC00CCF92F /* ArenaResultsVC.swift in Sources */,
+				F96D3A062936DF8200046F7C /* DemoScreenIntro.swift in Sources */,
 				F9D35F3328FDF5A4003EFF77 /* ViewController.swift in Sources */,
 				F96D8B902907292E00CCF92F /* MultiplicationInputVC.swift in Sources */,
 				F96D8B962907299300CCF92F /* ArenaVC.swift in Sources */,

@@ -33,7 +33,7 @@ class MultiplicationInputVC: UIViewController {
     var mainMultiplicand = 0.0
     
     override func viewDidLoad() {
-        
+        self.navigationItem.hidesBackButton = true
     }
     
     @IBAction func nextBtn(_ sender: Any) {
