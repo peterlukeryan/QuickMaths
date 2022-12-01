@@ -211,6 +211,7 @@ class MultiplicationInputVC: UIViewController {
             if i + 1 >= steps.count {
                 self.mainProduct.text = String(format: "%.0f", runningSum[steps.count - 1].2)
                 self.mainProduct.alpha = 1.0
+                self.mainProduct.textColor = UIColor.systemBlue
                 self.nextBtn.isEnabled = true
                 self.nextBtn.backgroundColor = UIColor.systemBlue
                 
