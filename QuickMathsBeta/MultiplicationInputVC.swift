@@ -34,8 +34,13 @@ class MultiplicationInputVC: UIViewController {
     var mainMultiplier = 0.0
     var mainMultiplicand = 0.0
     
+    @IBOutlet weak var frameView: UIView!
+   
     override func viewDidLoad() {
         self.navigationItem.hidesBackButton = true
+        frameView.layer.cornerRadius = 10
+        frameView.layer.borderColor = UIColor.black.cgColor
+        frameView.layer.borderWidth = 1
         
         mainExpression.alpha = 0
         mainProduct.alpha = 0
