@@ -13,6 +13,7 @@ class ArenaVC: UIViewController {
 
     var accuracy = 0
     var userTime = 0
+
     
     //Setup multiplicands
   
@@ -362,5 +363,7 @@ class ArenaVC: UIViewController {
         subButton.isEnabled = false
         subButton.backgroundColor = UIColor.lightGray
     }
+    
+
     
 }
