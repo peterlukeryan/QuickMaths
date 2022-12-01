@@ -158,6 +158,7 @@ class MultiplicationInputVC: UIViewController {
         if i >= steps.count { return }
         self.nextBtn.isEnabled = false
         self.nextBtn.backgroundColor = UIColor.lightGray
+        self.mainProduct.textColor = #colorLiteral(red: 1, green: 0.5764705882, blue: 0, alpha: 1)
         UIKit.UIView.animateKeyframes(withDuration: 8, delay: 0, animations: {
             // initialize running sum for this step
             UIKit.UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.10, animations: {
