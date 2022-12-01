@@ -13,6 +13,7 @@ class ArenaVC: UIViewController {
 
     var accuracy = 0
     var userTime = 0
+
     
     //Setup multiplicands
   
@@ -233,7 +234,7 @@ class ArenaVC: UIViewController {
                 checkAnswers()
                 
                 var currentScore = ScoreItem()
-                currentScore.accuracy = String(self.accuracy)
+                currentScore.accuracy = self.accuracy
                 currentScore.time = self.timerLabel.text!
                 
                 //create date for leaderboard
@@ -332,6 +333,7 @@ class ArenaVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         
         subButton.setTitleColor(UIColor.gray, for: .disabled)
         
@@ -361,5 +363,7 @@ class ArenaVC: UIViewController {
         subButton.isEnabled = false
         subButton.backgroundColor = UIColor.lightGray
     }
+    
+
     
 }

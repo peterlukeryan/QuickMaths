@@ -32,7 +32,7 @@ class MultiplicationInputVC: UIViewController {
     var mainMultiplicand = 0.0
     
     override func viewDidLoad() {
-        
+        self.navigationItem.hidesBackButton = true
     }
     
     // make an array of labels + variables that correspond to each step of the calculation
