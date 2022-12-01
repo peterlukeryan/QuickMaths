@@ -8,39 +8,58 @@
 import UIKit
 
 class MultiplicationInputVC: UIViewController {
-
+    
     @IBOutlet weak var firstNumberField: UITextField!
     
     @IBOutlet weak var secondNumberField: UITextField!
     
-    @IBOutlet weak var mainExpression: UILabel!
-    @IBOutlet weak var subExp1: UILabel!
-    @IBOutlet weak var subExp2: UILabel!
-    @IBOutlet weak var subExp3: UILabel!
-    @IBOutlet weak var subExp4: UILabel!
+    @IBOutlet weak var plusSign: UILabel!
+    @IBOutlet weak var equalsSign: UILabel!
+    @IBOutlet weak var sumEqualsSign: UILabel!
+    @IBOutlet weak var timesSign: UILabel!
     
-    @IBOutlet weak var runningSum1Lbl: UILabel!
-    @IBOutlet weak var runningSum2Lbl: UILabel!
-    @IBOutlet weak var runningSum3Lbl: UILabel!
-    @IBOutlet weak var runningSum4Lbl: UILabel!
-
-    @IBOutlet weak var runningProd2Lbl: UILabel!
-    @IBOutlet weak var runningProd3Lbl: UILabel!
-    @IBOutlet weak var runningProd4Lbl: UILabel!
+    @IBOutlet weak var mainExpression: UILabel!
+    @IBOutlet weak var mainProduct: UILabel!
+    
+    @IBOutlet weak var currOperand1: UILabel!
+    @IBOutlet weak var currOperand2: UILabel!
+    @IBOutlet weak var currProduct: UILabel!
+    
+    @IBOutlet weak var runningSumOperand1: UILabel!
+    @IBOutlet weak var runningSumOperand2: UILabel!
+    @IBOutlet weak var runningSumProduct: UILabel!
+    
+    @IBOutlet weak var nextBtn: UIButton!
     
     var mainMultiplier = 0.0
     var mainMultiplicand = 0.0
     
     override func viewDidLoad() {
         self.navigationItem.hidesBackButton = true
+        
+        mainExpression.alpha = 0
+        mainProduct.alpha = 0
+        
+        plusSign.alpha = 0
+        equalsSign.alpha = 0
+        sumEqualsSign.alpha = 0
+        timesSign.alpha = 0
+        
+        currOperand1.alpha = 0
+        currOperand2.alpha = 0
+        currProduct.alpha = 0
+        
+        runningSumOperand1.alpha = 0
+        runningSumOperand2.alpha = 0
+        runningSumProduct.alpha = 0
     }
     
-    // make an array of labels + variables that correspond to each step of the calculation
-    // make it so that the next button increments the index of the array and starts a new animation that deploys the desired values
-    // change the text in the labels
-    // adjust user flow diagram
+    var animationComplete = false
     
-    @IBAction func nextBtn(_ sender: Any) {
+    var currSteps:[(Double, Double, Double)] = []
+    var runningSumSteps:[(Double, Double, Double)] = []
+    
+    @IBAction func nextBtnPress(_ sender: Any) {
         // perform input validation -- length of input must be less than 99
         if ((Int(firstNumberField.text!) ?? 100) > 99 || (Int(firstNumberField.text!) ?? 100) > 99) {
             let alert = UIAlertController(title: "Invalid inputs!", message: "Please enter a number in each field that is less than 99.", preferredStyle: .alert)
@@ -67,19 +86,10 @@ class MultiplicationInputVC: UIViewController {
     }
     
     func setValues() {
-        mainExpression.text = String(format: "%.0f", mainMultiplier) + " X " + String(format: "%.0f", mainMultiplicand) + ":"
+        mainExpression.text = String(format: "%.0f", mainMultiplier) + " X " + String(format: "%.0f", mainMultiplicand) + " = "
+        mainProduct.text = "0"
         
-        runningSum1Lbl.alpha = 0
-        runningSum2Lbl.alpha = 0
-        runningSum3Lbl.alpha = 0
-        runningSum4Lbl.alpha = 0
-        subExp1.alpha = 0
-        subExp2.alpha = 0
-        subExp3.alpha = 0
-        subExp4.alpha = 0
-        runningProd2Lbl.alpha = 0
-        runningProd3Lbl.alpha = 0
-        runningProd4Lbl.alpha = 0
+        var assignmentComplete: Bool = false
         
         // 2 x 2
         if (mainMultiplier >= 10 && mainMultiplicand >= 10) {
@@ -89,24 +99,22 @@ class MultiplicationInputVC: UIViewController {
             let subMultiplierRem = mainMultiplier - subMultiplier
             let subMultiplicandRem = mainMultiplicand - subMultiplicand
             
-            subExp1.text = String(format: "%.0f", subMultiplier) + " X " + String(format: "%.0f", subMultiplicand)
-            subExp2.text = String(format: "%.0f", subMultiplier) + " X " + String(format: "%.0f", subMultiplicandRem)
-            subExp3.text = String(format: "%.0f", subMultiplierRem) + " X " + String(format: "%.0f", subMultiplicand)
-            subExp4.text = String(format: "%.0f", subMultiplierRem) + " X " + String(format: "%.0f", subMultiplicandRem)
-            
             let runningSum1 = subMultiplier * subMultiplicand
             let runningSum2 = subMultiplier * subMultiplicandRem
             let runningSum3 = subMultiplierRem * subMultiplicand
             let runningSum4 = subMultiplierRem * subMultiplicandRem
             
-            runningSum1Lbl.text = String(format: "%.0f", runningSum1)
-            runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " ="
-            runningSum3Lbl.text = String(format: "%.0f", runningSum1 + runningSum2) + " + " + String(format: "%.0f", runningSum3) + " ="
-            runningSum4Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3) + " + " + String(format: "%.0f", runningSum4) + " ="
+            currSteps.append((subMultiplier, subMultiplicand, runningSum1))
+            currSteps.append((subMultiplier, subMultiplicandRem, runningSum2))
+            currSteps.append((subMultiplierRem, subMultiplicand, runningSum3))
+            currSteps.append((subMultiplierRem, subMultiplicandRem, runningSum4))
             
-            runningProd2Lbl.text = String(format: "%.0f", runningSum1 + runningSum2)
-            runningProd3Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3)
-            runningProd4Lbl.text = String(format: "%.0f", runningSum1 + runningSum2 + runningSum3 + runningSum4)
+            runningSumSteps.append((0.0, runningSum1, runningSum1))
+            runningSumSteps.append((runningSum1, runningSum2, runningSum1 + runningSum2))
+            runningSumSteps.append((runningSum1 + runningSum2, runningSum3, runningSum1 + runningSum2 + runningSum3))
+            runningSumSteps.append((runningSum1 + runningSum2 + runningSum3, runningSum4, runningSum1 + runningSum2 + runningSum3 + runningSum4))
+            
+            assignmentComplete = true
         }
         // 2 x 1
         else if (mainMultiplier >= 10) {
@@ -114,16 +122,16 @@ class MultiplicationInputVC: UIViewController {
             let subMultiplierRem = mainMultiplier - subMultiplier
             
             // handle mainMultiplicand directly as it is < 10
-            subExp1.text = String(format: "%.0f", subMultiplier) + " X " + String(format: "%.0f", mainMultiplicand)
-            subExp2.text = String(format: "%.0f", subMultiplierRem) + " X " + String(format: "%.0f", mainMultiplicand)
-            
             let runningSum1 = subMultiplier * mainMultiplicand
             let runningSum2 = subMultiplierRem * mainMultiplicand
             
-            runningSum1Lbl.text = String(format: "%.0f", runningSum1)
-            runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " ="
+            currSteps.append((subMultiplier, mainMultiplicand, runningSum1))
+            currSteps.append((subMultiplierRem, mainMultiplicand, runningSum2))
             
-            runningProd2Lbl.text = String(format: "%.0f", runningSum1 + runningSum2)
+            runningSumSteps.append((0.0, runningSum1, runningSum1))
+            runningSumSteps.append((runningSum1, runningSum2, runningSum1 + runningSum2))
+            
+            assignmentComplete = true
         }
         // 1 x 2
         else {
@@ -131,87 +139,87 @@ class MultiplicationInputVC: UIViewController {
             let subMultiplicandRem = mainMultiplicand - subMultiplicand
             
             // handle mainMultiplier directly as it is < 10
-            subExp1.text = String(format: "%.0f", mainMultiplier) + " X " + String(format: "%.0f", subMultiplicand)
-            subExp2.text = String(format: "%.0f", mainMultiplier) + " X " + String(format: "%.0f", subMultiplicandRem)
-            
             let runningSum1 = mainMultiplier * subMultiplicand
             let runningSum2 = mainMultiplier * subMultiplicandRem
             
-            runningSum1Lbl.text = String(format: "%.0f", runningSum1)
-            runningSum2Lbl.text = String(format: "%.0f", runningSum1) + " + " + String(format: "%.0f", runningSum2) + " ="
+            currSteps.append((mainMultiplier, subMultiplicand, runningSum1))
+            currSteps.append((mainMultiplier, subMultiplicandRem, runningSum2))
             
-            runningProd2Lbl.text = String(format: "%.0f", runningSum1 + runningSum2)
+            runningSumSteps.append((0.0, runningSum1, runningSum1))
+            runningSumSteps.append((runningSum1, runningSum2, runningSum1 + runningSum2))
+            
+            assignmentComplete = true
         }
-        deployAnimation()
+        if (assignmentComplete) { deployAnimation(steps: currSteps, runningSum: runningSumSteps, i: 0) }
     }
-    
-    func deployAnimation() {
-        // this can be re-added upon further evaluation -- skeleton color code
-        
-//        var toBeColored1 = ""
-//        var toBeColored2 = ""
-//        var toBeColored3 = ""
-//        var toBeColored4 = ""
-//
-//        // 2 x 2
-//        if (mainMultiplier >= 10 && mainMultiplicand >= 10) {
-//            toBeColored1 = String(format: "%.0f", floor(mainMultiplier / 10))
-//            toBeColored2 = String(format: "%.0f", mainMultiplier.truncatingRemainder(dividingBy: 10.0))
-//            toBeColored3 = String(format: "%.0f", floor(mainMultiplicand / 10))
-//            toBeColored4 = String(format: "%.0f", mainMultiplicand.truncatingRemainder(dividingBy: 10.0))
-//        }
-//        // 2 x 1
-//        else if (mainMultiplier >= 10) {
-//            toBeColored1 = String(format: "%.0f", floor(mainMultiplier / 10))
-//            toBeColored2 = String(format: "%.0f", mainMultiplier.truncatingRemainder(dividingBy: 10.0))
-//            toBeColored3 = String(format: "%.0f", mainMultiplicand)
-//        }
-//        // 1 x 2
-//        else {
-//            toBeColored1 = String(format: "%.0f", mainMultiplier)
-//            toBeColored3 = String(format: "%.0f", floor(mainMultiplicand / 10))
-//            toBeColored2 = String(format: "%.0f", mainMultiplicand.truncatingRemainder(dividingBy: 10.0))
-//        }
-        
-        UIView.animateKeyframes(withDuration: 8, delay: 0, animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.10, animations: {
-//                self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored1)
-//                self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored3)
-                self.runningSum1Lbl.alpha = 1.0
-                self.subExp1.alpha = 1.0
-            })
-            
-            //self.mainExpression.textColor = #colorLiteral(red: 1, green: 0.5764705882, blue: 0, alpha: 1)
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.30, animations: {
-//                self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored1)
-//                self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored4)
-                self.runningSum2Lbl.alpha = 1.0
-                self.subExp2.alpha = 1.0
-                self.runningProd2Lbl.alpha = 1.0
-            })
-            
-            //self.mainExpression.textColor = #colorLiteral(red: 1, green: 0.5764705882, blue: 0, alpha: 1)
-            
-            if (self.runningSum3Lbl.text != " ") {
-                UIView.addKeyframe(withRelativeStartTime: 0.50, relativeDuration: 0.30, animations: {
-//                    self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored2)
-//                    self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored3)
-                    self.runningSum3Lbl.alpha = 1.0
-                    self.subExp3.alpha = 1.0
-                    self.runningProd3Lbl.alpha = 1.0
-                })
-                UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.30, animations: {
-//                    self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored2)
-//                    self.mainExpression.halfTextColorChange(fullText: (self.mainExpression.text)!, changeText: toBeColored4)
-                    self.runningSum4Lbl.alpha = 1.0
-                    self.subExp4.alpha = 1.0
-                    self.runningProd4Lbl.alpha = 1.0
-                })
-            }
-            
-            //self.mainExpression.textColor = #colorLiteral(red: 1, green: 0.5764705882, blue: 0, alpha: 1)
-        })
 
+    
+    func deployAnimation(steps: [(Double, Double, Double)], runningSum: [(Double, Double, Double)], i: Int) {
+        if i >= steps.count { return }
+        self.nextBtn.isEnabled = false
+        self.nextBtn.backgroundColor = UIColor.lightGray
+        UIKit.UIView.animateKeyframes(withDuration: 8, delay: 0, animations: {
+            // initialize running sum for this step
+            UIKit.UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.10, animations: {
+                self.mainProduct.text = String(format: "%.0f", runningSum[i].0)
+                
+                self.mainProduct.alpha = 1.0
+                self.mainExpression.alpha = 1.0
+            })
+            // begin multiplication + relativeStartTime should increase by .25 or so every frame
+            UIKit.UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.30, animations: {
+                self.currOperand1.text = String(format: "%.0f", steps[i].0)
+                self.currOperand2.text = String(format: "%.0f", steps[i].1)
+                self.currProduct.text = String(format: "%.0f", steps[i].2)
+                
+                self.currOperand1.alpha = 1.0
+                self.timesSign.alpha = 1.0
+                self.currOperand2.alpha = 1.0
+                self.sumEqualsSign.alpha = 1.0
+                self.currProduct.alpha = 1.0
+            })
+            // running sum
+            UIKit.UIView.addKeyframe(withRelativeStartTime: 0.50, relativeDuration: 0.30, animations: {
+                self.runningSumOperand1.text = String(format: "%.0f", runningSum[i].0)
+                self.runningSumOperand2.text = String(format: "%.0f", runningSum[i].1)
+                self.runningSumProduct.text = String(format: "%.0f", runningSum[i].2)
+                
+                self.runningSumOperand1.alpha = 1.0
+                self.plusSign.alpha = 1.0
+                self.runningSumOperand2.alpha = 1.0
+                self.equalsSign.alpha = 1.0
+                self.runningSumProduct.alpha = 1.0
+            })
+            // clear fields to be changed
+            UIKit.UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.20, animations: {
+                self.mainProduct.alpha = 0
+                
+                self.currOperand1.alpha = 0
+                self.timesSign.alpha = 0
+                self.currOperand2.alpha = 0
+                self.sumEqualsSign.alpha = 0
+                self.currProduct.alpha = 0
+                
+                self.runningSumOperand1.alpha = 0
+                self.plusSign.alpha = 0
+                self.runningSumOperand2.alpha = 0
+                self.equalsSign.alpha = 0
+                self.runningSumProduct.alpha = 0
+            })
+        }, completion: {
+            (isFinished) in
+            if i + 1 >= steps.count {
+                self.mainProduct.text = String(format: "%.0f", runningSum[steps.count - 1].2)
+                self.mainProduct.alpha = 1.0
+                self.nextBtn.isEnabled = true
+                self.nextBtn.backgroundColor = UIColor.systemBlue
+                
+                self.runningSumSteps.removeAll()
+                self.currSteps.removeAll()
+                
+                return
+            }
+            self.deployAnimation(steps: steps, runningSum: runningSum, i: i + 1)
+        })
     }
 }
